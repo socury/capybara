@@ -6,6 +6,6 @@ COPY ${JAR_FILE} app.jar
 WORKDIR /app
 COPY .env .env
 
-EXPOSE 443
+EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","/app.jar"]
