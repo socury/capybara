@@ -28,14 +28,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Generate SSL config yaml file
-        run:
-          echo "${{ secrets.APPLICATION_SSL_YML }}" > ./src/main/resources/application-ssl.yml
-        shell: bash
-
-      - name: Generate P12 Key file
-        run:
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > keystore.p12
+      - name: Set environment values
+        run: |
+          rm -f .env 
+          echo "${{ secrets.ENV }}" > .env
         shell: bash
 
       - name: Build and push Docker image
