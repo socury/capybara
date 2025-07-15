@@ -1,6 +1,6 @@
 spring:
   application:
-    name: auth-template
+    name: capybara
 
   data:
     redis:
